@@ -17,10 +17,11 @@ double[] CreateDoubleArr(int size)
 void FillDoubleArr(double[] arr, int minV, int maxV)
 {
     Random rnd = new Random();
+
     int length = arr.Length;
     for (int i = 0; i < length; i++)
     {
-        arr[i] = Math.Round(rnd.NextDouble(), 2);
+        arr[i] = Math.Round((rnd.NextDouble() + rnd.Next(minV,maxV)) , 2);
     }
 }
 void PrintArr (double[] arr){
@@ -31,9 +32,23 @@ void PrintArr (double[] arr){
     }
     System.Console.WriteLine();
 }
+void ReversArr(double[] arr)
+{
+    int length = arr.Length;
+    double[] arrRevers = new double[length];
+    for (int i = 0; i < length/2; i++)
+    {
+        double temp = arr[length - 1 -i];
+        arr[length - 1 -i] = arr[i];
+        arr[i] = temp;
+
+    }
+}
 int size = InputInteger("Введите размер массива: ");
-int minV = InputInteger("Введите максимальное значение эелемента: ");
-int maxV = InputInteger("Введите минимальное значение элемента: ");
+int minV = InputInteger("Введите минимальное значение эелемента: ");
+int maxV = InputInteger("Введите максимальное значение элемента: ");
 double[] arrD = CreateDoubleArr(size);
 FillDoubleArr(arrD, minV, maxV);
+PrintArr(arrD);
+ReversArr(arrD);
 PrintArr(arrD);
