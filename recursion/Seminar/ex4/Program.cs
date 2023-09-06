@@ -26,5 +26,6 @@ void Fibo(int num){
         }
     }
 }
+
 int num = InputN("Введит число:");
 Fibo(num);
